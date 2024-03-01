@@ -1,0 +1,38 @@
+﻿@model List<Tipo>
+
+@{
+    ViewData["Title"] = "Tipos";
+}
+
+<h1>Tipos</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Agregar nuevo</a>
+</p>
+
+<div class="col-md-4">
+    <table class="table table-striped table-hover">
+        <thead class="table-dark">
+            <tr class="position-center">
+                <th>Nombre</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nombre)
+                    </td>
+
+                    <td class="position-right">
+                        <a asp-action="Edit" asp-route-id="@item.IdTipo" class="btn btn-warning btn-sm">Editar</a>
+                        <a asp-action="Delect" asp-route-id="@item.IdTipo" class="btn btn-danger btn-sm">Borrar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

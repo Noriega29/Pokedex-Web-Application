@@ -1,0 +1,102 @@
+﻿@model IEnumerable<Pokedex.Models.Pokemon>
+
+@{
+    ViewData["Title"] = "Pokédex";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Agregar nuevo</a>
+</p>
+<table class="table table-bordered table-hover">
+    <thead class="table-dark">
+        <tr class="position-center">
+            <th class="col-auto">N.°</th>
+            <th>Icono</th>
+            <th class="col-auto">
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th class="col-auto">
+                Tipos
+            </th>
+            <th class="col-auto">
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </th>
+            <th class="col-auto">
+                Acciones
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model) {
+            <tr>
+                <td class="position-center p-0 m-0" width="42px">
+                    @Html.DisplayFor(modelItem => item.N)
+                </td>
+
+                <td class="m-0 p-0 position-center">
+                    <img src="~/Images/48x48/@Html.DisplayFor(img => item.Icono)" class="rounded mx-auto d-block" alt="@Html.DisplayFor(n => item.Nombre)">
+                </td>
+
+                <td class="col-auto position-vertical-center">
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+
+                <td class="col-md-1 col-lg-1 col-xl-2 position-vertical-center">
+                    @{
+                        var temp1 = item.PokemonsTipos
+                            .Where(p => p.IdPokemon == item.IdPokemon)
+                            .Select(m => m.IdTipo)
+                            .First();
+                        var tipo1 = ViewData[$"{temp1}"]
+                            .ToString();
+
+                        var temp2 = item.PokemonsTipos
+                            .Where(p => p.IdPokemon == item.IdPokemon)
+                            .Select(m => m.IdTipo)
+                            .Last();
+                        var tipo2 = ViewData[$"{temp2}"]
+                            .ToString();
+                    
+                        if (temp2 != temp1)
+                        {
+                            <div class="row justify-content-evenly">
+
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-6 position-center p-0">
+                                    <p class="m-0">
+                                        @Html.DisplayFor(t => tipo1)
+                                    </p>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-6 position-center p-0">
+                                    <p class="m-0">
+                                        @Html.DisplayFor(t => tipo2)
+                                    </p>
+                                </div>
+
+                            </div>
+                        }
+                        else
+                        {
+                            <p class="position-center p-0 m-0">
+                                @Html.DisplayFor(t => tipo1)
+                            </p>
+                        }
+                    }
+                </td>
+
+                <td class="col-auto col-sm-6 col-md-8 col-lg-5 col-xl-5 position-vertical-center">
+                    @Html.DisplayFor(modelItem => item.Descripcion)
+                </td>
+
+                <td class="position-center col-md-2 col-lg-3 col-xl-2">
+                    <a asp-action="Edit" asp-route-id="@item.IdPokemon" class="btn btn-primary btn-sm">Edit</a>
+                    <a asp-action="Details" asp-route-id="@item.IdPokemon" class="btn btn-success btn-sm">Details</a>
+                    <a asp-action="Delete" asp-route-id="@item.IdPokemon" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+                    
+            </tr>
+        }
+    </tbody>
+</table>
