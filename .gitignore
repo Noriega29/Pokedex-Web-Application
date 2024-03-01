@@ -1,0 +1,4 @@
+# Ignorar las carpetas:
+.vs/
+Pokedex/bin/
+Pokedex/obj/
