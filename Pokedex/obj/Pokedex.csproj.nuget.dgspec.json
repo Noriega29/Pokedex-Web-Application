@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Desarrollo\\Pokedex\\Pokedex\\Pokedex.csproj": {}
+    "D:\\Desarrollo\\GitHub\\Pokedex-Web-Application\\Pokedex\\Pokedex.csproj": {}
   },
   "projects": {
-    "D:\\Desarrollo\\Pokedex\\Pokedex\\Pokedex.csproj": {
+    "D:\\Desarrollo\\GitHub\\Pokedex-Web-Application\\Pokedex\\Pokedex.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Desarrollo\\Pokedex\\Pokedex\\Pokedex.csproj",
+        "projectUniqueName": "D:\\Desarrollo\\GitHub\\Pokedex-Web-Application\\Pokedex\\Pokedex.csproj",
         "projectName": "Pokedex",
-        "projectPath": "D:\\Desarrollo\\Pokedex\\Pokedex\\Pokedex.csproj",
+        "projectPath": "D:\\Desarrollo\\GitHub\\Pokedex-Web-Application\\Pokedex\\Pokedex.csproj",
         "packagesPath": "C:\\Users\\Mateo\\.nuget\\packages\\",
-        "outputPath": "D:\\Desarrollo\\Pokedex\\Pokedex\\obj\\",
+        "outputPath": "D:\\Desarrollo\\GitHub\\Pokedex-Web-Application\\Pokedex\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Mateo\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "8GrEmdThK5ohv7mRoM9PplmWB6wd+SPUxdJ9UTL30U5BrasMLXcbuV9nk/FLkSR1yLruLBkOret28z/38a1Bnw==",
+  "dgSpecHash": "FtO1LX8BtF8iM2s62Isrgm+WL5kYPZgdcZz2B5dJLZ6lje8LN7NTpnihXZBdVyWF7vOvMfL823l3nLJprPofMA==",
   "success": true,
-  "projectFilePath": "D:\\Desarrollo\\Pokedex\\Pokedex\\Pokedex.csproj",
+  "projectFilePath": "D:\\Desarrollo\\GitHub\\Pokedex-Web-Application\\Pokedex\\Pokedex.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Mateo\\.nuget\\packages\\bouncycastle.cryptography\\2.2.1\\bouncycastle.cryptography.2.2.1.nupkg.sha512",
     "C:\\Users\\Mateo\\.nuget\\packages\\google.protobuf\\3.25.1\\google.protobuf.3.25.1.nupkg.sha512",
