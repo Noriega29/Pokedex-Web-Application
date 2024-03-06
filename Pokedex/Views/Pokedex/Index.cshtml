@@ -92,7 +92,7 @@
 
                 <td class="position-center col-md-2 col-lg-3 col-xl-2">
                     <a asp-action="Edit" asp-route-id="@item.IdPokemon" class="btn btn-primary btn-sm">Edit</a>
-                    <a asp-action="Details" asp-route-id="@item.IdPokemon" class="btn btn-success btn-sm">Details</a>
+                    <a asp-action="Details" asp-route-pokemon="@item.Nombre" class="btn btn-success btn-sm">Details</a>
                     <a asp-action="Delete" asp-route-id="@item.IdPokemon" class="btn btn-danger btn-sm">Delete</a>
                 </td>
                     
