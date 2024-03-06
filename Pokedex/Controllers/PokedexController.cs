@@ -9,6 +9,8 @@ using Microsoft.EntityFrameworkCore;
 using Pokedex.Models;
 using Pokedex.Models.ViewModels;
 using System.Diagnostics;
+using Org.BouncyCastle.Pqc.Crypto.Lms;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Pokedex.Controllers
 {
@@ -51,24 +53,37 @@ namespace Pokedex.Controllers
         }
 
         //GET: Pokedex/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(string? pokemon)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var pokemon = await _context.Pokemons
-                .FirstOrDefaultAsync(m => m.IdPokemon == id);
             if (pokemon == null)
             {
                 return NotFound();
             }
 
-            return View(pokemon);
+            var poke = await _context.Pokemons
+                .FirstOrDefaultAsync(m => m.Nombre == pokemon);
+
+            if (poke == null)
+            {
+                return NotFound();
+            }
+            return View(poke);
+        }
+        // Método Buscar que recibe el parámetro nombre y que devuelve una vista parcial con los resultados
+        // que coincidan con el nombre.
+        public async Task<IActionResult> GetSuggestions(string valor)
+        {
+            // Realizar la consulta a la base de datos
+            var pokemons = await _context.Pokemons
+                .Where(p => p.Nombre.Contains(valor))
+                .OrderBy(n => n.Nombre)
+                .ToListAsync();
+
+            // Devolver una vista parcial con los pokemons
+            return PartialView("_PartialViewSuggestions", pokemons);
         }
 
-        //GET: Pokedex/Create
+        // GET: Pokedex/Create
         public IActionResult Create()
         {
             ViewData["Tipos"] = new SelectList(_context.Tipos.OrderBy(m => m.Nombre), "IdTipo", "Nombre");
