@@ -4,35 +4,54 @@
     ViewData["Title"] = "Tipos";
 }
 
-<h1>Tipos</h1>
+<div class="row">
+    <div class="col">
+    </div>
 
-<p>
-    <a asp-action="Create" class="btn btn-primary">Agregar nuevo</a>
-</p>
-
-<div class="col-md-4">
-    <table class="table table-striped table-hover">
-        <thead class="table-dark">
-            <tr class="position-center">
-                <th>Nombre</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Nombre)
-                    </td>
-
-                    <td class="position-right">
-                        <a asp-action="Edit" asp-route-id="@item.IdTipo" class="btn btn-warning btn-sm">Editar</a>
-                        <a asp-action="Delect" asp-route-id="@item.IdTipo" class="btn btn-danger btn-sm">Borrar</a>
-                    </td>
+    <div class="col-md-4">
+        <table class="table table-bordered table-hover caption-top">
+            <caption>
+                <div class="row justify-content-between position-vertical-center">
+                    <div class="col-6">
+                        <h3 class="m-0">
+                            Lista de tipos
+                        </h3>
+                    </div>
+                    <div class="col-6 position-right">
+                        <a asp-action="Create" class="btn btn-primary">Agregar nuevo</a>
+                    </div>
+                </div>
+            </caption>
+            <thead class="table-dark">
+                <tr class="position-center">
+                    <th class="col-auto">
+                        Nombre
+                    </th>
+                    <th class="col-xl-5 col-lg-6 col-md-6 col-sm-4 col-4">
+                        Acciones
+                    </th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr class="position-vertical-center">
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Nombre)
+                        </td>
+
+                        <td class="position-center">
+                            <a asp-action="Edit" asp-route-id="@item.IdTipo" class="btn btn-warning btn-sm">Editar</a>
+                            <a asp-action="Delect" asp-route-id="@item.IdTipo" class="btn btn-danger btn-sm">Borrar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <div class="col">
+    </div>
 </div>
+
